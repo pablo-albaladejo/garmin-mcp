@@ -8,6 +8,6 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^0.0.1"
+    "@modelcontextprotocol/sdk": "1.12.0"
   }
 }
