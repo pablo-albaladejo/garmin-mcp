@@ -2,5 +2,8 @@
   "name": "@garmin-mcp/host",
   "version": "0.0.1",
   "private": true,
-  "main": "index.html"
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=8080"
+  }
 }

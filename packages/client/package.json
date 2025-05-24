@@ -6,5 +6,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc"
+  },
+  "dependencies": {
+    "@mcp/typescript-sdk": "^0.0.1"
   }
 }

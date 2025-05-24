@@ -36,19 +36,30 @@ By the end of this project, you will have:
 
 -----
 
+## Architecture
+
+```mermaid
+graph TD
+    Host --> Client
+    Client --> Server
+    Server --> Model
+```
+
+-----
+
 ## Project Roadmap
 
 Here is a step-by-step plan to build our MCP proof-of-concept. Each step will be a separate task.
 
 ### Phase 1: Project Setup
 
-  * [ ] **Task 1: Initialize Project Structure**
+  * [x] **Task 1: Initialize Project Structure**
 
       * Create a monorepo structure with separate packages for `client`, `server`, and `host`.
       * Initialize a `package.json` in the root and in each package.
       * Set up TypeScript configuration (`tsconfig.json`) for both client and server.
 
-  * [ ] **Task 2: Install Dependencies**
+  * [x] **Task 2: Install Dependencies**
 
       * Install `express` and `@mcp/typescript-sdk` in the `server` package.
       * Install `@mcp/typescript-sdk` in the `client` package.
@@ -56,13 +67,13 @@ Here is a step-by-step plan to build our MCP proof-of-concept. Each step will be
 
 ### Phase 2: Server Implementation
 
-  * [ ] **Task 3: Create a Basic Express Server**
+  * [x] **Task 3: Create a Basic Express Server**
 
       * In the `server` package, create an `index.ts`.
       * Set up a simple Express server that listens on a specific port (e.g., 3000).
       * Add a basic health-check endpoint (e.g., `/`).
 
-  * [ ] **Task 4: Implement the MCP Server Logic**
+  * [x] **Task 4: Implement the MCP Server Logic**
 
       * Import `McpServer` from the SDK.
       * Instantiate `McpServer` and attach it to the Express app.
@@ -70,18 +81,18 @@ Here is a step-by-step plan to build our MCP proof-of-concept. Each step will be
 
 ### Phase 3: Host and Client Implementation
 
-  * [ ] **Task 5: Create the Host Application**
+  * [x] **Task 5: Create the Host Application**
 
       * In the `host` package, create an `index.html` file.
       * Add some simple interactive elements, like a text area (`<textarea>`) and a button. The content of this text area will be our "context".
 
-  * [ ] **Task 6: Create the MCP Client**
+  * [x] **Task 6: Create the MCP Client**
 
       * In the `client` package, create a `main.ts` file.
       * This script will be loaded by `index.html`.
       * Import `McpClient` from the SDK.
 
-  * [ ] **Task 7: Implement Client Logic**
+  * [x] **Task 7: Implement Client Logic**
 
       * Instantiate `McpClient`, pointing it to our server's address (e.g., `http://localhost:3000`).
       * Add an event listener to the button in the `host` application.
@@ -90,23 +101,34 @@ Here is a step-by-step plan to build our MCP proof-of-concept. Each step will be
 
 ### Phase 4: Integration and Testing
 
-  * [ ] **Task 8: Connect Host and Client**
+  * [x] **Task 8: Connect Host and Client**
 
       * Modify `index.html` to include the compiled client script (`main.js`).
       * Use a simple HTTP server (like `live-server`) or a bundler to serve the `host` and `client` files.
 
-  * [ ] **Task 9: End-to-End Test**
+  * [x] **Task 9: End-to-End Test**
 
       * Run the server: `npm run dev --workspace=server`.
       * Serve the host application.
       * Open the host in a browser, type something in the text area, and click the button.
       * Verify that the context is logged by the server console.
 
-  * [ ] **Task 10: Documentation and Cleanup**
+  * [x] **Task 10: Documentation and Cleanup**
 
       * Add comments to the code explaining the key parts.
       * Update this README with instructions on how to run the project.
       * Ensure the code is clean and easy to understand.
+
+## Running the Project
+
+1. Install dependencies with `npm install`.
+2. Build the server and client packages:
+   - `npm run build --workspace=packages/server`
+   - `npm run build --workspace=packages/client`
+3. Start the server in development mode: `npm run dev --workspace=packages/server`.
+4. Serve the host application using `npm run start --workspace=packages/host` and open it in your browser.
+5. Type text into the textarea and click **Send Context** to see the server log the received context.
+
 
 -----
 
