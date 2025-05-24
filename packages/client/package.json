@@ -8,6 +8,6 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@mcp/typescript-sdk": "^0.0.1"
+    "@modelcontextprotocol/sdk": "^0.0.1"
   }
 }
