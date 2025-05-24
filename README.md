@@ -132,7 +132,12 @@ Here is a step-by-step plan to build our MCP proof-of-concept. Each step will be
 
 ## Garmin Connect Integration
 
-The server exposes a new MCP tool `garmin.activities` and a REST endpoint `/garmin/activities`.
+The server exposes MCP tools for Garmin integration:
+
+* `garmin.activities` – returns recent activity data.
+* `garmin.query` – interprets a natural language query and returns Garmin information using a lightweight NLP agent.
+
+There are also REST endpoints `/garmin/activities` and `/garmin/query`.
 Set the following environment variables before starting the server:
 
 ```

@@ -18,10 +18,15 @@ export async function fetchGarminData(): Promise<GarminActivity[]> {
   }
 
   // TODO: Replace this mock with calls to an actual Garmin Connect client.
-  return [
-    {
-      date: new Date().toISOString().substring(0, 10),
-      steps: 1234,
-    },
-  ];
+  // Generate mock data for the last 3 days so our NLP queries have something
+  // interesting to work with.
+  const today = new Date();
+  return Array.from({ length: 3 }, (_, i) => {
+    const d = new Date(today);
+    d.setDate(today.getDate() - i);
+    return {
+      date: d.toISOString().substring(0, 10),
+      steps: 1000 + i * 500,
+    };
+  });
 }

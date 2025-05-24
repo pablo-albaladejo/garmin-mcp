@@ -1,7 +1,7 @@
-import { McpClient } from '@modelcontextprotocol/sdk/client/index.js';
+import { Client as McpClient } from '@modelcontextprotocol/sdk/client/index.js';
 
 // Connect to the MCP server running on localhost
-const client = new McpClient({ server: 'http://localhost:3000' });
+const client: any = new McpClient({ server: 'http://localhost:3000' } as any);
 
 // Helper to send the textarea content as context
 function sendContext() {

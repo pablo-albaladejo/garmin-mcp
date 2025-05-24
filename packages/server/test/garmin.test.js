@@ -26,3 +26,19 @@ test('GET /garmin/activities returns data', async () => {
   assert.ok(Array.isArray(body));
   server.close();
 });
+
+test('POST /garmin/query returns steps for today', async () => {
+  const app = createApp();
+  const server = http.createServer(app);
+  server.listen(0);
+  await once(server, 'listening');
+  const { port } = server.address();
+  const res = await fetch(`http://localhost:${port}/garmin/query`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query: 'steps today' })
+  });
+  const body = await res.json();
+  assert.ok('steps' in body);
+  server.close();
+});

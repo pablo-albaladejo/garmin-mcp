@@ -1,3 +1,4 @@
 # Ignore build outputs
 packages/*/dist/
+packages/*/*.tsbuildinfo
 node_modules/
