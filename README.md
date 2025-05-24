@@ -43,6 +43,7 @@ graph TD
     Host --> Client
     Client --> Server
     Server --> Model
+    Server --> GarminConnect
 ```
 
 -----
@@ -128,6 +129,18 @@ Here is a step-by-step plan to build our MCP proof-of-concept. Each step will be
 3. Start the server in development mode: `npm run dev --workspace=packages/server`.
 4. Serve the host application using `npm run start --workspace=packages/host` and open it in your browser.
 5. Type text into the textarea and click **Send Context** to see the server log the received context.
+
+## Garmin Connect Integration
+
+The server exposes a new MCP tool `garmin.activities` and a REST endpoint `/garmin/activities`.
+Set the following environment variables before starting the server:
+
+```
+GARMIN_EMAIL=<your email>
+GARMIN_PASSWORD=<your password>
+```
+
+These credentials are used to authenticate with Garmin Connect. The current implementation returns mocked data but can be replaced with a proper Garmin Connect client.
 
 
 -----

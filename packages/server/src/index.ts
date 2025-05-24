@@ -1,23 +1,39 @@
 import express from 'express';
-import { McpServer } from '@modelcontextprotocol/sdk';
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { fetchGarminData } from './garmin';
 
-// Simple Express application that hosts an MCP server
-const app = express();
-const port = process.env.PORT || 3000;
+export function createApp() {
+  const app = express();
 
-// Attach MCP server to Express app
-const mcp = new McpServer({ app });
+  const mcp = new McpServer({ app });
 
-// Log any context sent from the client
-mcp.onContext((ctx: unknown) => {
-  console.log('Received context:', ctx);
-});
+  // MCP tool to fetch Garmin data
+  mcp.tool('garmin.activities', async () => {
+    const activities = await fetchGarminData();
+    return { activities };
+  });
 
-// Basic health check endpoint
-app.get('/', (_req, res) => {
-  res.send('ok');
-});
+  app.get('/', (_req, res) => {
+    res.send('ok');
+  });
 
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
-});
+  // REST endpoint to fetch Garmin data
+  app.get('/garmin/activities', async (_req, res) => {
+    try {
+      const activities = await fetchGarminData();
+      res.json(activities);
+    } catch (err) {
+      res.status(500).json({ error: (err as Error).message });
+    }
+  });
+
+  return app;
+}
+
+if (require.main === module) {
+  const port = process.env.PORT || 3000;
+  const app = createApp();
+  app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+  });
+}

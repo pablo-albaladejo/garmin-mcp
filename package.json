@@ -11,5 +11,8 @@
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.2.0",
     "live-server": "^1.2.1"
+  },
+  "scripts": {
+    "test": "npm run build --workspace=packages/server && node --test packages/server/test"
   }
 }

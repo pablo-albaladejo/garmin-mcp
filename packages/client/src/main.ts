@@ -1,4 +1,4 @@
-import { McpClient } from '@modelcontextprotocol/sdk';
+import { McpClient } from '@modelcontextprotocol/sdk/client/index.js';
 
 // Connect to the MCP server running on localhost
 const client = new McpClient({ server: 'http://localhost:3000' });
