@@ -18,7 +18,7 @@ This project will implement all three components to demonstrate a complete MCP w
 
 ## Project Goal
 
-The primary goal of this repository is to provide a clear and simple example of how to implement MCP using the official [`@mcp/typescript-sdk`](https://www.google.com/search?q=%5Bhttps://github.com/modelcontextprotocol/typescript-sdk%5D\(https://github.com/modelcontextprotocol/typescript-sdk\)).
+The primary goal of this repository is to provide a clear and simple example of how to implement MCP using the official [`@modelcontextprotocol/sdk`](https://github.com/modelcontextprotocol/typescript-sdk).
 
 By the end of this project, you will have:
 
@@ -31,7 +31,7 @@ By the end of this project, you will have:
 
   * **Backend**: [Node.js](https://nodejs.org/) with [Express](https://expressjs.com/) for the MCP Server.
   * **Frontend**: Plain HTML, CSS, and TypeScript for the Host and Client.
-  * **MCP Implementation**: [`@mcp/typescript-sdk`](https://www.google.com/search?q=%5Bhttps://github.com/modelcontextprotocol/typescript-sdk%5D\(https://github.com/modelcontextprotocol/typescript-sdk\)).
+  * **MCP Implementation**: [`@modelcontextprotocol/sdk`](https://github.com/modelcontextprotocol/typescript-sdk).
   * **Build Tool**: `tsc` (the TypeScript compiler) and `ts-node-dev` for easy development.
 
 -----
@@ -61,8 +61,8 @@ Here is a step-by-step plan to build our MCP proof-of-concept. Each step will be
 
   * [x] **Task 2: Install Dependencies**
 
-      * Install `express` and `@mcp/typescript-sdk` in the `server` package.
-      * Install `@mcp/typescript-sdk` in the `client` package.
+      * Install `express` and `@modelcontextprotocol/sdk` in the `server` package.
+      * Install `@modelcontextprotocol/sdk` in the `client` package.
       * Install development dependencies like `typescript`, `ts-node-dev`, and `@types/express` at the root level.
 
 ### Phase 2: Server Implementation

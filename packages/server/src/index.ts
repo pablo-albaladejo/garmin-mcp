@@ -1,5 +1,5 @@
 import express from 'express';
-import { McpServer } from '@mcp/typescript-sdk';
+import { McpServer } from '@modelcontextprotocol/sdk';
 
 // Simple Express application that hosts an MCP server
 const app = express();
